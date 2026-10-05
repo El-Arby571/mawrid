@@ -5,8 +5,8 @@
  "crs": "EPSG:32628",
  "res_m": 10,
  "window": {
-  "row0": 768,
-  "col0": 1616,
+  "row0": 4032,
+  "col0": 5664,
   "size": 1024
  },
  "bands": [
@@ -16,5 +16,5 @@
   "nir",
   "scl"
  ],
- "note": "Windowed subset of a Sentinel-2 L2A scene, no offset applied."
+ "note": "Windowed subset of a Sentinel-2 L2A scene, no offset applied. Window chosen to intersect the fixed exposed core."
 }
