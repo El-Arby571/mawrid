@@ -1,0 +1,82 @@
+{
+ "title": "Mawrid · intertidal seagrass series · Tidra, Banc d'Arguin",
+ "metric": "% meadow within fixed exposed core (exposure ≥ 0.60)",
+ "core_ha": 7725,
+ "detection_limit_pp": 8.55,
+ "tide_slope_pp_per_expo": -81.4,
+ "reference_scene": [
+  "S2B",
+  "2026-06-05"
+ ],
+ "reference_expo": 0.5742,
+ "ndvi_threshold": 0.31554460525512695,
+ "display_res_m": 30,
+ "mmu_ha": 0.5,
+ "gaps": [
+  2017,
+  2018,
+  2019,
+  2020,
+  2022
+ ],
+ "gap_reasons": {
+  "2017": "tide mismatch 0.091 · core coverage 56%",
+  "2018": "coverage 54% · noise 26.4%",
+  "2019": "sensor offset +0.111 · noise 19.1% (dust)",
+  "2020": "nearest scene tide 0.083 · coverage 75.6%",
+  "2022": "nearest scene tide 0.137"
+ },
+ "statement": "Marked increase in observed intertidal extent between 2024 and 2025, holding in 2026; 1.5–2.0× the measured detection limit. Likely trend, not a proven result.",
+ "series": [
+  {
+   "year": 2021,
+   "value": 27.74,
+   "lo": 26.72,
+   "hi": 28.76,
+   "n_scenes": 2,
+   "area_ha": 1844.0,
+   "scene": "2021-07-01",
+   "sat": "S2B"
+  },
+  {
+   "year": 2023,
+   "value": 30.43,
+   "lo": 30.43,
+   "hi": 30.43,
+   "n_scenes": 1,
+   "area_ha": 2123.0,
+   "scene": "2023-06-11",
+   "sat": "S2B"
+  },
+  {
+   "year": 2024,
+   "value": 24.72,
+   "lo": 24.72,
+   "hi": 24.72,
+   "n_scenes": 1,
+   "area_ha": 1899.0,
+   "scene": "2024-06-25",
+   "sat": "S2B"
+  },
+  {
+   "year": 2025,
+   "value": 39.2,
+   "lo": 38.06,
+   "hi": 41.02,
+   "n_scenes": 3,
+   "area_ha": 2544.0,
+   "scene": "2025-06-17",
+   "sat": "S2A"
+  },
+  {
+   "year": 2026,
+   "value": 39.72,
+   "lo": 33.19,
+   "hi": 41.75,
+   "n_scenes": 3,
+   "area_ha": 3002.0,
+   "scene": "2026-06-05",
+   "sat": "S2B"
+  }
+ ]
+}

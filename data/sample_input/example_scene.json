@@ -1,0 +1,20 @@
+{
+ "satellite": "S2B",
+ "date": "2026-06-05",
+ "collection": "sentinel-2-l2a",
+ "crs": "EPSG:32628",
+ "res_m": 10,
+ "window": {
+  "row0": 768,
+  "col0": 1616,
+  "size": 1024
+ },
+ "bands": [
+  "blue",
+  "green",
+  "red",
+  "nir",
+  "scl"
+ ],
+ "note": "Windowed subset of a Sentinel-2 L2A scene, no offset applied."
+}
