@@ -6,28 +6,28 @@
  "classes": [
   {
    "cls": 1,
-   "name": "محجوب — القاع مرئي في أقل من 25 % من المشاهد",
+   "name": "Blocked - bottom visible in under 25% of scenes",
    "ha": 44945,
    "pct": 24.7
   },
   {
    "cls": 2,
-   "name": "ضعيف — 25 إلى 50 %",
+   "name": "Poor - 25 to 50%",
    "ha": 116967,
    "pct": 64.3
   },
   {
    "cls": 3,
-   "name": "متوسط — 50 إلى 75 %",
+   "name": "Moderate - 50 to 75%",
    "ha": 8551,
    "pct": 4.7
   },
   {
    "cls": 4,
-   "name": "جيد — 75 % فأكثر",
+   "name": "Good - 75% or more",
    "ha": 11421,
    "pct": 6.3
   }
  ],
- "note": "نسبة المشاهد التي كان فيها قاع الماء مرئياً عند كل بكسل. مؤشّر نسبي لقابلية الرصد البصري، لا قياس معاير للعكارة."
+ "note": "Fraction of scenes in which the sea bed was optically visible at each pixel. A relative index of optical observability, not a calibrated turbidity measurement."
 }

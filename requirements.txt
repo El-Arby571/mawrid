@@ -1,0 +1,20 @@
+# Mawrid - pinned dependencies
+# Tested on Python 3.11.
+#
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+
+numpy==2.4.4
+rasterio==1.4.4
+matplotlib==3.10.9
+scipy==1.17.1
+shapely==2.1.2
+
+# Running the notebook
+jupyterlab==4.5.1
+ipykernel==7.4.0
+nbformat==5.11.1
+
+# Only needed by src/fetch_scene.py, which re-downloads the sample scene from
+# the public archive. The notebook itself runs offline on the committed sample.
+pystac-client==0.9.0

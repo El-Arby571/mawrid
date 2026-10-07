@@ -1,0 +1,45 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mawrid analysis grid",
+    "crs": "EPSG:32628",
+    "res_m": 10,
+    "width_px": 8854,
+    "height_px": 7247,
+    "origin_x": 301350.0,
+    "origin_y": 2232450.0,
+    "note": "Footprint of the 10 m grid every Mawrid layer is computed on. Tidra sector, Banc d'Arguin, Mauritania."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -16.900937913772992,
+       19.524671685736262
+      ],
+      [
+       -16.049508486353755,
+       19.524671685736262
+      ],
+      [
+       -16.049508486353755,
+       20.18632767683765
+      ],
+      [
+       -16.900937913772992,
+       20.18632767683765
+      ],
+      [
+       -16.900937913772992,
+       19.524671685736262
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}
