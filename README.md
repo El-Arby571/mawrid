@@ -126,6 +126,8 @@ In execution order:
 10. **Priorities.** Classification uncertainty × change magnitude × observability
     → ranked field sites; low observability × large area → sonar targets.
 
+![Survey priorities](results/priority_map.png)
+
 ![Classification on the sample scene](results/example_output.png)
 
 ## 6. Installation
@@ -184,6 +186,7 @@ EPSG:32628, with `example_scene.json` recording the exact scene, date and window
 | `observability.json`, `observability.geojson`, `observability_preview.png` | Where the satellite can see the bottom |
 | `priority_field.geojson` | 11 ranked field-visit sites |
 | `priority_sonar.geojson` | 20 sonar targets in the blind areas |
+| `priority_map.png` | The two target lists drawn over the observability layer and the core |
 
 ## 9. Results and limitations
 
@@ -235,6 +238,8 @@ hackathon platform:
 | `banocamara2006.hc@gmail.com` | Team member |
 | `nahecheikhsidiya@gmail.com` | Team member |
 | `Khadijasnabdellahi@gmail.com` | Team member |
+
+The presentation submitted with this proof of concept is `docs/slides.pdf`.
 
 Code is released under the MIT licence, see `LICENSE`.
 
