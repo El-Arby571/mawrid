@@ -20,8 +20,9 @@ the Tidra flats changed, and by how much?* — and it answers it with an error b
 that was measured rather than assumed.
 
 The headline result: within a fixed 7,725 ha core of the intertidal zone, the
-share classified as seagrass meadow rose **15.0 percentage points between 2024
-and 2026**, which is **1.75 times the measured detection limit of 8.55 pp**.
+share classified as seagrass meadow jumped **14.5 percentage points between two
+consecutive years, 2024 and 2025** — **1.69 times the measured detection limit
+of 8.55 pp** — and held through 2026, 15.0 pp above the 2024 level.
 That makes it a likely trend. It does not make it a proven one, and this
 repository is explicit about the difference.
 
@@ -192,8 +193,13 @@ EPSG:32628, with `example_scene.json` recording the exact scene, date and window
 
 **Measured.** Share of the fixed core classified as exposed meadow, corrected to
 a common tide: 2021 — 27.74, 2023 — 30.43, 2024 — 24.72, 2025 — 39.20,
-2026 — 39.72 (percentage points). The 2024→2026 rise of 15.0 pp is 1.75× the
-detection limit.
+2026 — 39.72 (percentage points). The step is between two consecutive years:
+2024 → 2025, +14.48 pp, which is 1.69× the detection limit. It holds in 2026,
+leaving the current level 15.0 pp above 2024.
+
+The comparison is deliberately between consecutive entries rather than between
+the lowest and highest years, because a rule that picks whichever pair gives the
+largest difference is not a measurement.
 
 **Validated by.** A detection limit measured from repeat scenes where the true
 change is zero; a tide slope estimated within years; a stable bare-sediment
@@ -226,6 +232,25 @@ target normalising sensors and flagging dust.
 ranked sites; acoustic survey of the largest blind areas; extension from the
 Tidra sector to the full park; and hyperspectral bands for species separation
 once a usable revisit exists over this coast.
+
+## 9b. The interactive platform
+
+An optional companion to the notebook, in `platform/`, served live at
+**https://el-arby571.github.io/mawrid/platform/**
+
+It is a static page — Leaflet and Chart.js, no build step, no backend — reading
+the same files committed under `results/`. It shows the measurement core, the
+classified meadow for each year, the observability layer and the two priority
+lists, with the corrected series as a chart, in Arabic and English.
+
+It also applies one rule in the browser: scan every consecutive pair in
+`series.json`, and raise an alert only when a change reaches the measured
+detection limit. On the current data that is the 2024 → 2025 jump. Every number
+in the banner is computed from the file.
+
+To run it locally, serve the repository over HTTP — `python -m http.server 8000`,
+then open `http://localhost:8000/platform/`. Opening `index.html` directly from
+disk will not work, because browsers block `fetch` on `file://`.
 
 ## 10. Team, licence and attribution
 
