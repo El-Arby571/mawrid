@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مَوْرِد</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="alert-banner" class="alert-banner" role="status" hidden></div>
+
+<header class="top">
+  <div class="brand">
+    <span class="brand-name" data-s="brand"></span>
+    <span class="brand-meta" id="hdr-core"></span>
+    <span class="brand-meta" id="hdr-limit"></span>
+  </div>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="ar" lang="ar">عربي</button>
+    <button type="button" data-lang="en" lang="en">EN</button>
+  </div>
+</header>
+
+<div id="demo-banner" class="demo-banner" role="alert" hidden></div>
+
+<main class="layout">
+  <section class="map-wrap" aria-label="map">
+    <div id="map"></div>
+    <div id="map-fallback" class="map-fallback" hidden></div>
+  </section>
+
+  <aside class="panel">
+    <!-- G. Limitation notice: first in the panel so it is visible without scrolling -->
+    <section class="notice" id="limitation" role="note"></section>
+
+    <!-- H. Priority sites: one independent toggle button per map layer -->
+    <section class="block" aria-labelledby="priority-title">
+      <h2 id="priority-title" data-s="priorityTitle"></h2>
+      <div class="toggles">
+        <button type="button" class="tog" id="tog-field" data-key="field" aria-pressed="false" disabled></button>
+        <button type="button" class="tog" id="tog-sonar" data-key="sonar" aria-pressed="false" disabled></button>
+      </div>
+    </section>
+
+    <!-- A. Year selector -->
+    <section class="block">
+      <h2 data-s="yearsTitle"></h2>
+      <div id="years" class="years"></div>
+      <p id="year-status" class="year-status" aria-live="polite"></p>
+    </section>
+
+    <!-- B. Measurement cards -->
+    <section class="block">
+      <div class="card main-card">
+        <div class="big" id="m-value"></div>
+        <div class="m-label" data-s="valueLabel"></div>
+        <div class="m-unc" id="m-unc"></div>
+        <div class="m-verdict" id="m-verdict"></div>
+      </div>
+      <div class="card area-card">
+        <div class="area-num" id="m-area"></div>
+        <div class="m-label" data-s="areaLabel"></div>
+      </div>
+    </section>
+
+    <!-- C. Series chart -->
+    <section class="block">
+      <h2 data-s="chartTitle"></h2>
+      <div class="chart-box"><canvas id="chart" aria-label="chart"></canvas></div>
+      <p id="chart-fallback" class="muted small" hidden></p>
+    </section>
+
+    <!-- D. Statement (verbatim from data) -->
+    <section class="block statement">
+      <h2 data-s="statementTitle"></h2>
+      <p id="statement" dir="auto"></p>
+    </section>
+
+    <!-- E. Gap table -->
+    <section class="block">
+      <h2 data-s="gapsTitle"></h2>
+      <table class="tbl"><thead><tr><th data-s="colYear"></th><th data-s="colReason"></th></tr></thead>
+      <tbody id="gaps"></tbody></table>
+    </section>
+
+    <!-- F. Scene table -->
+    <section class="block">
+      <details id="scenes-details">
+        <summary data-s="scenesTitle"></summary>
+        <div class="tbl-scroll">
+        <table class="tbl scenes">
+          <thead><tr>
+            <th data-s="colYear"></th><th data-s="colSat"></th><th data-s="colDate"></th>
+            <th data-s="colNoise"></th><th data-s="colCoverage"></th><th data-s="colAccepted"></th>
+          </tr></thead>
+          <tbody id="scenes"></tbody>
+        </table>
+        </div>
+      </details>
+    </section>
+  </aside>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

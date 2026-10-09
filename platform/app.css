@@ -1,0 +1,212 @@
+/* Mawrid — instrument styling. Palette fixed by the brief. */
+:root {
+  --ink: #0F2A33;
+  --paper: #F6F3EC;
+  --paper2: #ECE7DC;
+  --line: #DDD6C8;
+  --accent: #1B7A62;
+  --accent-soft: #E6F0EA;
+  --warn: #B4472F;
+  --muted: #3E5560;
+  --amber: #E8A33D;        /* alert banner: a likely trend is amber, never red */
+  --amber-soft: #FCF1D9;
+  --amber-ink: #6E4600;
+  --grey-soft: #E9ECED;
+  --grey-edge: #8A9BA3;
+  --font: "IBM Plex Sans Arabic", Tahoma, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+h2 { font-size: 14px; font-weight: 600; margin: 0 0 8px; color: var(--ink); }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+bdi.n { unicode-bidi: isolate; direction: ltr; }
+
+/* Header */
+.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px 12px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.brand { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; min-width: 0; }
+.brand-name { font-weight: 700; font-size: 18px; }
+.brand-meta { color: var(--muted); font-size: 13px; }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.lang button {
+  font: inherit; font-size: 13px; padding: 4px 12px; border: 0; background: var(--paper);
+  color: var(--ink); cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+.demo-banner {
+  background: var(--warn); color: #fff; padding: 8px 16px; font-weight: 600; font-size: 14px;
+}
+
+/* Alert banner at the top of the page: amber for a likely trend, grey when the change is within the limit */
+.alert-banner {
+  padding: 9px 16px; font-size: 14px; line-height: 1.5; color: var(--ink);
+  border-bottom: 1px solid; border-inline-start: 6px solid;
+}
+.alert-banner[hidden] { display: none; }
+.alert-banner strong { font-weight: 700; }
+.alert-banner.amber { background: var(--amber-soft); border-color: var(--amber); }
+.alert-banner.amber strong { color: var(--amber-ink); }
+.alert-banner.grey { background: var(--grey-soft); border-color: var(--grey-edge); }
+
+/* Layout: panel on the inline-start side (right in RTL, left in LTR), map on the other side */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 430px) minmax(0, 1fr);
+  grid-template-areas: "panel map";
+  height: calc(100vh - 52px);
+  min-height: 520px;
+}
+/* Desktop: header, banners and layout form one column that fills the window, so a banner above
+ * the layout shortens the map and the panel instead of pushing the page past the window. */
+@media (min-width: 761px) {
+  body { height: 100vh; display: flex; flex-direction: column; }
+  .layout { flex: 1 1 0; height: auto; }
+}
+.panel {
+  grid-area: panel; min-width: 0; overflow-y: auto;
+  border-inline-end: 1px solid var(--line);
+  padding: 14px 16px 24px;
+}
+.map-wrap { grid-area: map; position: relative; min-width: 0; }
+#map { position: absolute; inset: 0; background: var(--paper2); }
+.map-fallback {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  padding: 24px; text-align: center; color: var(--muted); background: var(--paper2);
+}
+
+.block { margin-bottom: 18px; min-width: 0; }
+
+/* G. Limitation notice */
+.notice {
+  border: 1px solid var(--warn); border-inline-start-width: 4px; background: #fff;
+  color: var(--ink); padding: 10px 12px; font-size: 13.5px; margin-bottom: 16px;
+}
+.notice strong { color: var(--warn); display: block; margin-bottom: 2px; }
+
+/* H. Priority-site toggles: pressed = layer shown */
+.toggles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.tog {
+  font: inherit; display: flex; align-items: center; gap: 9px; min-width: 0; text-align: start;
+  padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px;
+  background: #fff; color: var(--ink); cursor: pointer;
+}
+.tog[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.tog:disabled { cursor: default; background: var(--paper2); color: var(--muted); border-style: dashed; }
+.tog:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tog-txt { display: flex; flex-direction: column; min-width: 0; line-height: 1.35; }
+.tog-name { font-weight: 600; font-size: 13.5px; }
+.tog-sub { font-size: 12.5px; overflow-wrap: anywhere; }
+.tog-sw { flex: 0 0 14px; width: 14px; height: 14px; border-radius: 50%; }
+.tog-sw.field { box-shadow: 0 0 0 1.5px #fff; }   /* the white stroke of the dot on the map */
+.tog-sw.sonar { border: 2px solid; }              /* ring colour is set inline from the layer style */
+
+/* A. Years */
+.years { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.years button {
+  font: inherit; font-size: 13px; padding: 6px 0; border: 1px solid var(--line);
+  background: #fff; color: var(--ink); border-radius: 4px; cursor: pointer; min-width: 0;
+}
+.years button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.years button.gap {
+  border-style: dashed; border-color: var(--muted); background: var(--paper2); color: var(--muted);
+  cursor: help;
+}
+.year-status { min-height: 1.4em; margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+
+/* B. Cards */
+.card { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; }
+.main-card { margin-bottom: 8px; }
+.big { font-size: 40px; font-weight: 700; line-height: 1.1; }
+.m-label { color: var(--muted); font-size: 13.5px; }
+.m-unc { margin-top: 8px; font-size: 14px; }
+.m-verdict {
+  margin-top: 8px; display: inline-block; font-weight: 600; font-size: 14px;
+  padding: 4px 10px; border-radius: 4px; border: 2px solid;
+}
+.m-verdict.above { border-color: var(--accent); color: var(--accent); background: #fff; }
+.m-verdict.within { border-color: var(--ink); color: var(--ink); background: var(--paper2); }
+.m-verdict.base { border-color: var(--muted); color: var(--muted); background: var(--paper); }
+.area-num { font-size: 22px; font-weight: 600; }
+
+/* C. Chart */
+.chart-box { position: relative; height: 270px; }
+
+/* D. Statement */
+.statement p { margin: 0; background: var(--accent-soft); padding: 10px 12px; border-radius: 4px; }
+
+/* E/F. Tables */
+.tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tbl th, .tbl td { text-align: start; padding: 5px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tbl th { font-weight: 600; color: var(--muted); }
+.tbl td.reason { overflow-wrap: anywhere; }
+.tbl-scroll { max-width: 100%; overflow-x: auto; }
+.scenes td, .scenes th { white-space: nowrap; }
+.scenes tr.rejected td { color: var(--muted); background: var(--paper2); }
+.scenes tr.rejected td.acc { color: var(--warn); }
+.scenes td.acc { font-weight: 600; }
+details summary { cursor: pointer; font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+
+/* Map legend */
+.legend {
+  background: rgba(255,255,255,.96); border: 1px solid var(--line); border-radius: 4px;
+  padding: 8px 10px; font-family: var(--font); font-size: 12px; color: var(--ink);
+  max-width: 290px; line-height: 1.45;
+}
+.legend .row { display: flex; align-items: flex-start; gap: 6px; margin: 2px 0; }
+.legend .sw { flex: 0 0 14px; height: 12px; margin-top: 2px; border: 1px solid var(--ink); }
+.legend .cap { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); font-weight: 600; }
+.legend .note { color: var(--muted); margin-top: 4px; }
+.legend .miss { color: var(--muted); font-style: italic; margin-top: 4px; }
+.leaflet-container { font-family: var(--font); }
+.leaflet-control-layers { font-size: 12px; }
+.legend .grp { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); }
+.legend .sw.dot { flex-basis: 12px; width: 12px; margin-inline: 1px; border: 0; border-radius: 50%; }
+.legend .sw.ring { flex-basis: 12px; width: 12px; margin-inline: 1px; border: 2px solid; border-radius: 50%; background: transparent; }
+
+/* Popups of the observability and priority layers */
+.pp { font-size: 13px; line-height: 1.55; text-align: start; min-width: 140px; }
+.pp-h { font-weight: 600; margin-bottom: 4px; overflow-wrap: anywhere; }
+.pp-row .k { color: var(--muted); }
+.pp bdi.n { white-space: nowrap; }   /* a number or a coordinate pair never breaks across two lines */
+.pp-ltr { margin-bottom: 2px; overflow-wrap: anywhere; text-align: left; }
+
+/* Rank number beside each field dot: bare text with a light halo, no box.
+ * Leaflet places a tooltip with a transform only; without an explicit left/top an RTL page shifts it
+ * left by its own width, so both are set here, and the arrow margins are removed. */
+.leaflet-tooltip.rank-tip {
+  left: 0; top: 0; margin: 0;
+  background: transparent; border: 0; box-shadow: none; padding: 0;
+  font: 700 12px/1 var(--font); color: var(--ink);
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+}
+.leaflet-tooltip.rank-tip::before { display: none; }
+
+/* Mobile: map on top, panel below */
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "map" "panel";
+    height: auto; min-height: 0;
+  }
+  .map-wrap { height: 50vh; min-height: 280px; }
+  .panel { overflow: visible; border-inline-end: 0; }
+  .big { font-size: 34px; }
+  .legend { max-width: 180px; font-size: 11px; max-height: 40vh; overflow-y: auto; }
+  .legend .lg-more { display: none; }
+  .has-pp .legend, .has-pp .leaflet-control-layers { visibility: hidden; }
+}

@@ -1,0 +1,33 @@
+{
+ "res_m": 60,
+ "scenes": 72,
+ "green_thr": 0.12610000000000002,
+ "min_water_obs": 5,
+ "classes": [
+  {
+   "cls": 1,
+   "name": "Blocked - bottom visible in under 25% of scenes",
+   "ha": 44945,
+   "pct": 24.7
+  },
+  {
+   "cls": 2,
+   "name": "Poor - 25 to 50%",
+   "ha": 116967,
+   "pct": 64.3
+  },
+  {
+   "cls": 3,
+   "name": "Moderate - 50 to 75%",
+   "ha": 8551,
+   "pct": 4.7
+  },
+  {
+   "cls": 4,
+   "name": "Good - 75% or more",
+   "ha": 11421,
+   "pct": 6.3
+  }
+ ],
+ "note": "Fraction of scenes in which the sea bed was optically visible at each pixel. A relative index of optical observability, not a calibrated turbidity measurement."
+}
